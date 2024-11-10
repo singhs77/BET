@@ -101,55 +101,84 @@
         }
 
         footer {
-        text-align: center;
-        padding: 10px;
-        background: #000;
-        color: #fff;
-        position: sticky;
-        bottom: 0;
-        width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #000;
+            color: #fff;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
         }
 
         footer p {
             margin: 0;
         }
 
-        @media (max-width: 768px) {
-            .form-container {
-                margin: 20px 15px;
-                padding: 15px;
-            }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-            label, input, textarea {
-                font-size: 13px;
-            }
+        .modal-content {
+            background: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
 
-            button {
-                font-size: 14px;
-            }
+        .modal-content h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .close-btn {
+            padding: 10px 20px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .close-btn:hover {
+            background: #0056b3;
         }
     </style>
     <title>BetSlip Application Form</title>
-   	<script
-		src="https://code.jquery.com/jquery-3.4.1.js"
-		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-		crossorigin="anonymous"></script>
-	<script>
-<script>
-function SubForm (){
-    $.ajax({
-        url:'https://api.apispreadsheets.com/data/LACiXX9EtW8kE7JI/',
-        type:'post',
-        data:$("#myForm").serializeArray(),
-        success: function(){
-          alert("Form Data Submitted :)")
-        },
-        error: function(){
-          alert("There was an error :(")
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        function SubForm() {
+            $.ajax({
+                url: 'https://api.apispreadsheets.com/data/LACiXX9EtW8kE7JI/',
+                type: 'post',
+                data: $("#myForm").serializeArray(),
+                success: function () {
+                    document.getElementById('successModal').style.display = 'block';
+                },
+                error: function () {
+                    alert("There was an error :(");
+                }
+            });
         }
-    });
-}
-</script>
+
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -162,7 +191,7 @@ function SubForm (){
 
     <section class="form-container">
         <h1>BetSlip Application Form</h1>
-        <form id="myForm">
+        <form id="myForm" onsubmit="event.preventDefault(); SubForm();">
             <label for="bettor-id">Bettor ID:</label>
             <input type="text" id="bettor-id" name="bettor_id" placeholder="Enter your Bettor ID" required>
 
@@ -181,15 +210,20 @@ function SubForm (){
             <label for="odds">Odds:</label>
             <input type="number" id="odds" name="odds" placeholder="Enter the odds (e.g., 1.5)" step="0.01" required>
 
-            <label for="amount-wagered">Amount Wagere:</label>
+            <label for="amount-wagered">Amount Wagered:</label>
             <input type="number" id="amount-wagered" name="amount_wagered" placeholder="Enter the amount wagered" step="0.01" required>
 
-            
-
-            <button onclick="SubForm()">Submit</button>
+            <button type="submit">Submit</button>
         </form>
-        
     </section>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Thank you! Your form has been submitted successfully.</h2>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
 
     <footer>
         <p>© 2024 BrickAss Betslips</p>
