@@ -47,7 +47,7 @@
             border-radius: 10px;
         }
 
-        .form-container h1 {
+        .form-container h1 { 
             text-align: center;
             margin-bottom: 20px;
             font-size: 24px;
@@ -157,6 +157,28 @@
         .close-btn:hover {
             background: #0056b3;
         }
+
+        <style>
+    .submit-another-btn {
+        padding: 10px 20px;
+        background: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s ease;
+    }
+
+    .submit-another-btn:hover {
+        background: #218838;
+    }
+
+    .modal-content div {
+        margin-top: 20px;
+    }
+</style>
+
     </style>
     <title>BetSlip Application Form</title>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -178,6 +200,14 @@
         function closeModal() {
             document.getElementById('successModal').style.display = 'none';
         }
+
+        
+        function submitAnother() {
+            document.getElementById('myForm').reset(); // Clear the form
+            closeModal(); // Close the modal
+        }
+
+
     </script>
 </head>
 <body>
@@ -218,12 +248,16 @@
     </section>
 
     <!-- Modal -->
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <h2>Thank you! Your form has been submitted successfully.</h2>
+<!-- Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-content">
+        <h2>Thank you! Your form has been submitted successfully.</h2>
+        <div style="display: flex; justify-content: center; gap: 15px;">
             <button class="close-btn" onclick="closeModal()">Close</button>
+            <button class="submit-another-btn" onclick="submitAnother()">Submit Another</button>
         </div>
     </div>
+</div>
 
     <footer>
         <p>© 2024 BrickAss Betslips</p>
