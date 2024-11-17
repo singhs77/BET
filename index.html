@@ -1,31 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- ===( BETSLIPS )=== -->
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>BetSlip</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px 10px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+
+        .navbar .icon a {
+            color: white;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .text {
+            margin-top: 20px;
+        }
+
+        .text h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .text p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .text button {
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .text button:hover {
+            background-color: #ff6347;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar .icon {
+                margin-top: 10px;
+            }
+
+            .text h1 {
+                font-size: 1.8em;
+            }
+
+            .text p {
+                font-size: 1em;
+            }
+
+            .text button {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text h1 {
+                font-size: 1.5em;
+            }
+
+            .text p {
+                font-size: 0.9em;
+            }
+
+            .text button {
+                font-size: 12px;
+            }
+
+            .navbar ul {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="navbar">
-            
             <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Betslips</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-
             <div class="icon">
                 <a href="#"><i class="fa-brands fa-searchengin"></i></a>
                 <a href="#"><i class="fa-brands fa-gitter"></i></a>
-
             </div>
         </div>
-
         <div class="text">
-            <h1>BrickAss BETSLIPS <br></h1>
-            <p>upload you brick ass slips  <br>
-                </p>
-                <button onclick="location.href='form.html'">Here</button>
+            <h1>BrickAss BETSLIPS</h1>
+            <p>Upload your brick-ass slips</p>
+            <button onclick="location.href='form.html'">Submit</button>
         </div>
     </header>
 </body>
