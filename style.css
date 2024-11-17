@@ -57,7 +57,7 @@ body {
 .icon a {
     font-size: 18px;
     margin-left: 20px;
-    color: #333333;
+    color: #333333; 
     transition: color 0.3s ease;
 }
 
